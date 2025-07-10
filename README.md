@@ -1,6 +1,6 @@
-# Groq Interview Assistant
+# Groq Assistant
 
-This is a Flutter application that acts as an AI-powered interview assistant. It leverages the Groq API for fast AI responses and transcription, helping users practice for job interviews.
+This is a Flutter application that acts as an AI-powered assistant. It leverages the Groq API for fast AI responses and transcription, helping users practice.
 
 ## Features
 
