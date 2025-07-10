@@ -1,0 +1,92 @@
+=== START RESUME: Art Astillero ===
+
+## CONTACT INFORMATION
+
+*   **Name:** ART ASTILLERO
+*   **Title:** SENIOR SOFTWARE ENGINEER
+*   **Address:** Gen Maxilom Ave Horizons 101 Tower 1, Cebu, Philippines 6000
+*   **Email:** art.astillero@gmail.com
+*   **Website:** ph.linkedin.com/in/artastillero
+*   **Phone:** +639266159116
+
+## CAREER OBJECTIVE
+
+Senior Java Developer with 15+ years of experience designing and deploying high-performance enterprise applications. Proven leader in Agile environments, adept at mentoring teams and driving complex projects using Java 17+, Spring Framework, and microservices. Passionate about scalable, maintainable solutions with a strong focus on TDD and cloud-native technologies.
+
+## TECHNICAL SKILLS
+
+*   **Languages:** Java (17+), SQL, JavaScript, Flutter, Dart, Groovy, HTML/XML
+*   **Frameworks:** Spring (Boot, MVC, Data, Security, Cloud), Hibernate, RESTful APIs, JUnit/Mockito
+*   **Cloud & DevOps:** Docker, AWS (basic), Jenkins, Maven/Gradle
+*   **Databases:** MySQL, PostgreSQL, Firebase Firestore
+*   **Architecture:** Microservices, Event-Driven Design, SOLID Principles
+*   **Tools:** IntelliJ, VSCode, Git, Bitbucket
+
+## WORK EXPERIENCE
+
+**Senior Java Software Engineer**
+Eliteblue Security Specialist Inc. | Manila, Philippines | 2021-2024
+*   Architected and developed a custom ERP system from the ground up using Java 17, Spring Boot, Hibernate, and MySQL, resulting in a 30% increase in operational efficiency.
+*   Implemented RESTful APIs using Spring MVC and Spring Security for secure data exchange between different modules of the ERP system.
+*   Utilized Spring Data JPA to simplify database interactions and improve data access performance.
+*   Implemented robust error handling and logging using SLF4J.
+*   Wrote comprehensive unit and integration tests using JUnit 5 and Mockito, achieving 90%+ code coverage.
+*   Deployed via Docker on AWS EC2.
+
+---
+
+**Senior Java Software Engineer**
+EPAM Systems | Gdansk, Poland | 2016-2017
+*   Developed and maintained a rules engine for processing Delivery Agreements within Nordea Bank's Global Accounting Interface (GAI 2.0) using Drools. Improved processing speed by 20% through optimization of rule execution.
+*   Enhanced GAI 2.0 reporting capabilities by integrating FindBugs, JaCoCo (for code coverage), and Checkstyle, ensuring code quality and maintainability.
+*   Integrated the internal employee portal (EPAM Heroes) with SSO/NTLM/PMC authentication, enhancing security and user experience.
+*   Implemented new features for badge visibility and assignment within the EPAM Heroes portal, improving internal recognition and collaboration.
+
+---
+
+**Senior Java Developer**
+Silverlake Axis | Makati City, Philippines | 2015-2016
+*   Developed new modules and integrated bank APIs for Symetri My Money, an online banking platform using Java, Spring, and Hibernate.
+*   Designed and implemented an exchange rate module and currency conversion calculator, ensuring accurate and real-time financial calculations.
+*   Created a robust account statement module, providing users with clear and comprehensive transaction history.
+
+---
+
+**Senior Java Developer**
+TORO.IO | Clark Freeport Zone, Philippines | 2013-2015
+*   Developed Toro-commerce, an e-commerce platform, leveraging Spring, Hibernate, JPA, and the Broadleaf commerce framework.
+*   Re-engineered checkout and payment modules, improving performance and user experience.
+*   Mentored junior programmers in Java development best practices, design patterns, and Agile methodologies.
+
+---
+
+**Senior Software Engineer**
+VSC (Twist Resources) | Clark Freeport Zone, Philippines | 2009-2013
+*   Developed Java-based web apps for real property website MyRP using servlets and JSP.
+
+---
+
+**Senior Mobile Developer (Flutter)**
+UserAdd | Toronto, Canada | 2017-2024 (Contract)
+*   Led the development of two cross-platform mobile applications (BallroomGo and Critique Sheet) using Flutter, from UI design to backend integration.
+*   Integrated the Stripe API for secure payment processing.
+*   Utilized Java and SendGrid API for email notification services.
+
+---
+
+**Systems Programmer**
+Western Wats Phils. Inc. | Cebu, Philippines | 2007-2009
+*   Built internal data collection tools, automating 80% of manual reporting.
+
+## EDUCATION
+
+*   **Bachelor of Computer Science** (2007)
+*   University of San Carlos | Cebu, Philippines
+
+## REFERENCE
+
+*   Robert Feltham
+*   CEO UserAdd Inc.
+*   Email: rfeltham@useradd.com
+
+=== END RESUME: Art Astillero ===

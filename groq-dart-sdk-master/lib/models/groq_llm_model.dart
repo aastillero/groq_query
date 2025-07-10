@@ -40,6 +40,8 @@ class GroqModels {
       'llama-3.2-90b-vision-preview';
   static const String llama_32_90b_text_preview = 'llama-3.2-90b-text-preview';
   static const String llama_33_70b_versatile = 'llama-3.3-70b-versatile';
+  static const String deepseek_r1_distill_llama_70b = 'deepseek-r1-distill-llama-70b';
+  static const String deepseek_r1_distill_llama_70b_specdec = 'deepseek-r1-distill-llama-70b-specdec';
 }
 
 class GroqLLMModel {

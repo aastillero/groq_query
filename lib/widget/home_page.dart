@@ -22,6 +22,8 @@ class _HomePageState extends State<HomePage> {
   String _transcribedText = "";
   String _selectedLanguage = "English";
   String _systemPrompt = "";
+  bool _systemSpeechEnabled = false;
+  bool _systemDeepThinkEnabled = false;
   String? _imageUrl;
 
   List<XFile> _capturedImages = []; // List to store captured images
@@ -39,7 +41,7 @@ class _HomePageState extends State<HomePage> {
       print("<<<<< ${auService.isRecordingNotifier.value}");
       if (!auService.isRecordingNotifier.value) {
         final chatService = context.read<ChatService>();
-        await auService.playRecording();
+        //await auService.playRecording();
         chatService.transcibeAudio(auService.getRecordedFilePath());
       }
     });
@@ -51,6 +53,8 @@ class _HomePageState extends State<HomePage> {
 
     _systemPrompt = await preferences.getSystemPrompt() ?? chatService.defaultPrompt;
     _selectedLanguage = await preferences.getSelectedLanguage() ?? "English";
+    _systemSpeechEnabled = await preferences.getSystemSpeech() ?? false;
+    _systemDeepThinkEnabled = await preferences.getDeepThinking() ?? false;
 
     setState(() {
       chatService.systemPrompt = _systemPrompt!;
@@ -68,7 +72,9 @@ class _HomePageState extends State<HomePage> {
       final response = await chatService.sendMessage(message);
       setState(() {
         _responseText = response;
-        voiceService.speak(response);
+        if(_systemSpeechEnabled) {
+          voiceService.speak(response);
+        }
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -296,6 +302,8 @@ class _HomePageState extends State<HomePage> {
       builder: (BuildContext context) {
         String localSelectedLanguage = _selectedLanguage; // Local variable for modal
         String localPromptText = _systemPrompt; // Local variable for modal
+        bool localSpeechEnabled = _systemSpeechEnabled;
+        bool localDeepThinkEnabled = _systemDeepThinkEnabled;
 
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setModalState) {
@@ -331,6 +339,39 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   SizedBox(height: 16),
+                  // Speech toggle
+                  Row(
+                    children: [
+                      Text('Speech:', style: TextStyle(fontSize: 16)),
+                      Spacer(),
+                      Switch(
+                        value: localSpeechEnabled,
+                        onChanged: (bool value) {
+                          setModalState(() {
+                            localSpeechEnabled = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16),
+                  // Speech toggle
+                  Row(
+                    children: [
+                      Text('Deep Thinking:', style: TextStyle(fontSize: 16)),
+                      Spacer(),
+                      Switch(
+                        value: localDeepThinkEnabled,
+                        onChanged: (bool value) {
+                          setModalState(() {
+                            localDeepThinkEnabled = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16),
+
                   // TextFormField for "Prompt"
                   TextFormField(
                     initialValue: _systemPrompt,
@@ -344,6 +385,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(height: 16),
+
                   // Action buttons
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -360,10 +402,20 @@ class _HomePageState extends State<HomePage> {
                           final preferences = context.read<PreferencesManager>();
                           final voiceService = context.read<VoiceService>();
 
+                          // If you need to do anything special when speech is toggled,
+                          // this is a good place to handle that logic before saving.
+                          // For example:
+                          // if (localSpeechEnabled) {
+                          //   // TTS or voice input logic
+                          // } else {
+                          //   // Possibly disable TTS or voice input
+                          // }
+
                           try {
-                            //voiceService.getLanguages();
+                            // Example for setting speech recognition/TTs language:
                             await voiceService.setLanguage(
-                                localSelectedLanguage == "Tagalog" ? "fil-PH" : "en-US");
+                                localSelectedLanguage == "Tagalog" ? "fil-PH" : "en-US"
+                            );
                           } catch (e) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
@@ -373,7 +425,9 @@ class _HomePageState extends State<HomePage> {
                           }
 
                           setState(() {
-                            _selectedLanguage = localSelectedLanguage; // Save changes to parent state
+                            _selectedLanguage = localSelectedLanguage;
+
+                            // Manage the system prompt logic
                             if(_selectedLanguage == "Tagalog") {
                               if(!localPromptText.contains(chatService.tagalogPrompt)) {
                                 _systemPrompt = "$localPromptText ${chatService.tagalogPrompt}";
@@ -385,11 +439,16 @@ class _HomePageState extends State<HomePage> {
                               _systemPrompt = localPromptText;
                             }
 
-                            // Change TTS language
-                            print("PROMPT: $_systemPrompt");
+                            // Store preferences
                             preferences.setSelectedLanguage(_selectedLanguage);
                             preferences.setSystemPrompt(_systemPrompt);
+
+                            // Store the speech toggle state if needed
+                            preferences.setSystemSpeech(localSpeechEnabled);
+
+                            print("PROMPT: $_systemPrompt");
                           });
+
                           Navigator.of(context).pop(); // Close the bottom sheet
                         },
                         child: Text('Save'),
